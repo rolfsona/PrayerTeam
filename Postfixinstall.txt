@@ -1,0 +1,74 @@
+1. Switch to root user
+
+sudo su
+
+2. Install postfix
+
+yum install postfix -y
+
+3. Stop sendmail (installed on Amazon Linux by default)
+
+/etc/init.d/sendmail stop
+
+4. Start postfix
+
+/etc/init.d/postfix start
+
+5. Switch MTA from sendmail to postfix
+
+alternatives –set mta /usr/sbin/sendmail.postfix
+
+6. Configure postfix to allow email for the same domain name to be received.
+
+In most cases, all you need to do is this:
+
+nano /etc/postfix/main.cf
+
+an then in the file make sure all the lines that start with mydestination are commented out, like this:
+
+#mydestination etc.
+
+Then add your own:
+
+mydestination =
+
+That’s it, nothing after the =
+
+Then save the file. In most cases this should be enough. Sometimes, however, you may find yourself in need to additionally configure the following settings:
+
+myhostname = [insertyourhostname].[insertyourdomainname].com
+myorigin = $mydomain
+relayhost = $mydomain
+inet_interfaces = loopback-only
+
+in addition to
+
+mydestination =
+
+Also keep in mind that there could be spam settings on the receiving mail server that places the incoming mail into spam, and as a result it does not get delivered from the mail server to the final destination mailbox. You need to confirm that the mail does not land in spam (often that requires communication with the person controlling the mail server).
+
+7. Reload postfix
+
+/etc/init.d/postfix reload
+
+8. Exit the root user
+
+exit
+
+That’s it, your email should now be delivered to anywhere in the world, including mailboxes associated with your own domain name – all of that via postfix.
+
+ 
+
+Explanation of some of the actions
+
+Set myhostname to [insertyourhostname].[insertyourdomainname].com, in case the machine name isn’t set to a fully-qualified domain name (use the command “postconf -d myhostname” to find out what the machine name is). Which means, if it is set to a fully qualified domain name, this is not necessary.
+
+The myhostname value also provides the default value for the mydomain parameter (here, “mydomain = [insertyourdomainname].com”).
+
+The myorigin setting ensures that you send mail as “user@[insertyourdomainname].com” (instead of “user@hostname.[insertyourdomainname].com”), so that nothing ever has a reason to send mail to “user@hostname.[insertyourdomainname].com”.
+
+With relayhost setting you forward all mail to the mail server that is responsible for the “[insertyourdomainname].com” domain. This prevents mail from getting stuck on the null client if it is turned off while some remote destination is unreachable. Specify a real hostname here if your “[insertyourdomainname].com” domain has no MX record.
+
+Block mail from the network with inet_interfaces.
+
+And finally, by setting mydestination equal to nothing, you disable local mail delivery. All mail goes to the mail server as specified in line
