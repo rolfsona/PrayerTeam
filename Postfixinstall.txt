@@ -72,3 +72,12 @@ With relayhost setting you forward all mail to the mail server that is responsib
 Block mail from the network with inet_interfaces.
 
 And finally, by setting mydestination equal to nothing, you disable local mail delivery. All mail goes to the mail server as specified in line
+
+
+#### INSTALL PERL CPAN ##########
+sudo yum install perl-CPAN make gcc
+
+sudo cpan -i Email::Send Email::MIME
+
+##### Template Email with MIME::LITE #####
+http://www.revsys.com/writings/perl/sending-email-with-perl.html
