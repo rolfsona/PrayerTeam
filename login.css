@@ -1,0 +1,233 @@
+* {
+   margin: 0;
+     padding: 0;
+     }
+
+     body {
+       background: #2E3740;
+         color: #F2F2F2;
+           font-family: "Open Sans", sans-serif;
+           }
+
+           h2 {
+             color: #6D7781;
+               font-family: "Sofia", cursive;
+                 font-size: 15px;
+                   font-weight: bold;
+                     font-size: 3.6em;
+                       text-align: center;
+                         margin-bottom: 20px;
+                         }
+                
+        
+         h6 {
+             color: #99FF33;
+               font-family: "Sofia", cursive;
+                 font-size: 5px;
+                   font-weight: bold;
+                     font-size: 1.6em;
+                       text-align: center;
+                         margin-bottom: 20px;
+                         }
+td {
+	font-family: "Sofia", cursive;
+	font-size: 15 px;
+	color: #40FF00;
+}
+a {
+  color: #F2F2F2;
+  text-decoration: underline;
+}
+
+#userError { 
+	font-family: "Calibri";
+    color: red;
+    font-size: 7 px;
+}
+
+#emailError { 
+	font-family: "Calibri";
+    color: red;
+    font-size: 7 px;
+}
+
+#dayError {
+	font-family: "Calibri";
+    color: red;
+    font-size: 7 px;
+}
+
+.login {
+  width: 400px;
+  position: absolute;
+  top: 0%;
+  left: 50%;
+  margin-left: -175px;
+}
+
+input[type="text"], input[type="password"] {
+  width: 350px;
+  padding: 20px 0px;
+  background: transparent;
+  border: 0;
+  border-bottom: 1px solid #F2F2F2;
+  outline: none;
+  color: #F2F2F2;
+  font-size: 16px;
+}
+input[type=checkbox] {
+  display: none;
+}
+
+label {
+  display: block;
+  position: absolute;
+  margin-right: 10px;
+  width: 8px;
+  height: 8px;
+  border-radius: 50%;
+  background: transparent;
+  content: "";
+  transition: all 0.3s ease-in-out;
+  cursor: pointer;
+  border: 3px solid #F2F2F2;
+}
+
+
+#agree:checked ~ label[for=agree] {
+  background: #F2F2F2;
+}
+
+
+input[type="submit"] {
+  background: #1FCE6D;
+  border: 0;
+  width: 350px;
+  height: 40px;
+  border-radius: 3px;
+  color: #fff;
+  font-size: 12px;
+  cursor: pointer;
+  transition: background 0.3s ease-in-out;
+}
+input[type="submit"]:hover {
+  background: #16aa56;
+  animation-name: shake;
+}
+
+.forgot {
+  margin-top: 30px;
+  display: block;
+  font-size: 11px;
+  text-align: center;
+  font-weight: bold;
+}
+.forgot:hover {
+  margin-top: 30px;
+  display: block;
+  font-size: 11px;
+  text-align: center;
+  font-weight: bold;
+  color: #6D7781;
+}
+
+.agree {
+  padding: 30px 0px;
+  font-size: 12px;
+  text-indent: 25px;
+  line-height: 15px;
+}
+
+::-webkit-input-placeholder {
+  color: #848484;
+  font-size: 12px;
+}
+
+.animated {
+  animation-fill-mode: both;
+  animation-duration: 3s;
+}
+
+@keyframes shake {
+  0%, 100% {
+    transform: translateX(0);
+  }
+  10%, 30%, 50%, 70%, 90% {
+    transform: translateX(-10px);
+  }
+  20%, 40%, 60%, 80% {
+    transform: translateX(10px);
+  }
+}
+
+/* .slideThree */
+.slideThree {
+  width: 80px;
+  height: 26px;
+  background: #333;
+  margin: 20px auto;
+  position: relative;
+  border-radius: 50px;
+  box-shadow: inset 0px 1px 1px rgba(0, 0, 0, 0.5), 0px 1px 0px rgba(255, 255, 255, 0.2);
+}
+.slideThree:after {
+  content: 'OFF';
+  color: #000;
+  position: absolute;
+  right: 10px;
+  z-index: 0;
+  font: 12px/26px Arial, sans-serif;
+  font-weight: bold;
+  text-shadow: 1px 1px 0px rgba(255, 255, 255, 0.15);
+}
+.slideThree:before {
+  content: 'ON';
+  color: #27ae60;
+  position: absolute;
+  left: 10px;
+  z-index: 0;
+  font: 12px/26px Arial, sans-serif;
+  font-weight: bold;
+}
+.slideThree label {
+  display: block;
+  width: 34px;
+  height: 20px;
+  cursor: pointer;
+  position: absolute;
+  top: 3px;
+  left: 3px;
+  z-index: 1;
+  background: #fcfff4;
+  background: -webkit-linear-gradient(top, #fcfff4 0%, #dfe5d7 40%, #b3bead 100%);
+  background: linear-gradient(to bottom, #fcfff4 0%, #dfe5d7 40%, #b3bead 100%);
+  border-radius: 50px;
+  -webkit-transition: all 0.4s ease;
+  transition: all 0.4s ease;
+  box-shadow: 0px 2px 5px 0px rgba(0, 0, 0, 0.3);
+}
+.slideThree input[type=checkbox] {
+  visibility: hidden;
+}
+.slideThree input[type=checkbox]:checked + label {
+  left: 43px;
+}
+
+/* end .slideThree */
+
+/* Already Registered */
+
+.etc-login-form {
+  color: #919191;
+  padding: 10px 20px;
+}
+.etc-login-form p {
+  margin-bottom: 5px;
+  padding: 30px 0px;
+  font-size: 12px;
+  text-indent: 25px;
+  line-height: 15px;
+}
+
+
+
