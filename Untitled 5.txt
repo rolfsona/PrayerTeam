@@ -1,0 +1,36 @@
+
+ 	echo "From: rolfsona@gmail.com” > /tmp/mail.tmp
+    	echo "To: rolfsona@gmail.com” >> /tmp/mail.tmp
+        echo "MIME-Version: 1.0" >> /tmp/mail.tmp
+        echo "Subject: Email Subject" >> /tmp/mail.tmp
+        echo "Content-Type: multipart/mixed; boundary=\"FILEBOUNDARY\"" >> /tmp/mail.tmp
+        echo >> /tmp/mail.tmp
+        echo "--FILEBOUNDARY" >> /tmp/mail.tmp
+        echo "Content-Type: multipart/alternative; boundary=\"MSGBOUNDARY\"" >> /tmp/mail.tmp
+        echo >> /tmp/mail.tmp
+
+        echo "--MSGBOUNDARY" >> /tmp/mail.tmp
+        echo "Content-Type: text/html; charset=iso-8859-1" >> /tmp/mail.tmp
+        echo "Content-Disposition: inline" >> /tmp/mail.tmp
+        echo "<html><body>" >> /tmp/mail.tmp
+        echo "<font face=verdana size=2>Tick mark:- </font>" >> /tmp/mail.tmp
+        echo "<img src=\"cid:tickjpeg\" /><br>" >> /tmp/mail.tmp
+        echo "</body></html>" >> /tmp/mail.tmp
+        echo "--MSGBOUNDARY--" >> /tmp/mail.tmp
+
+        echo >> /tmp/mail.tmp
+        echo "--FILEBOUNDARY" >> /tmp/mail.tmp
+        echo "Content-Type: image/jpeg" >> /tmp/mail.tmp
+        echo "Content-Disposition: inline; filename=\”/Users/rolfsona/Desktop/EAS Bothell/Prayer.jpg\”” >> /tmp/mail.tmp
+        echo "Content-Transfer-Encoding: base64" >> /tmp/mail.tmp
+        echo "Content-Id: <tickjpeg>" >> /tmp/mail.tmp
+        echo >> /tmp/mail.tmp
+        base64 Prayer.jpg >> /tmp/mail.tmp
+        echo >> /tmp/mail.tmp
+        echo "--FILEBOUNDARY--" >> /tmp/mail.tmp
+ 	cat /tmp/mail.tmp | sendmail -t
+
+AUTH PLAIN
+cHJheWVydGVhbUBlYXNib3RoZWxsLm9yZw==
+Rolfs-Home:EAS Bothell rolfsona$ echo -n 'Steveisgr8!' | base64
+U3RldmVpc2dyOCE=

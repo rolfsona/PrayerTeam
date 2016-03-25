@@ -1,0 +1,32 @@
+{\rtf1\ansi\ansicpg1252\cocoartf1348\cocoasubrtf170
+{\fonttbl\f0\fmodern\fcharset0 Courier;}
+{\colortbl;\red255\green255\blue255;\red17\green0\blue95;\red236\green236\blue245;\red0\green0\blue255;
+}
+\margl1440\margr1440\vieww10800\viewh8400\viewkind0
+\deftab720
+\pard\pardeftab720
+
+\f0\fs26 \cf2 \cb3 \expnd0\expndtw0\kerning0
+outputFile=Prayer.html; \
+(  \
+echo "From: \cf4 \expnd0\expndtw0\kerning0
+\ul \ulc4 rolfsona@gmail.com\cf2 \expnd0\expndtw0\kerning0
+\ulnone \'94  \
+echo "To: \cf4 \expnd0\expndtw0\kerning0
+\ul \ulc4 rolfsona@gmail.com\'94\cf2 \expnd0\expndtw0\kerning0
+\ulnone   \
+echo "MIME-Version: 1.0"  \
+echo "Subject: Test"   \
+echo "Content-Type: text/html"   \
+cat $outputFile  \
+) | sendmail -t\
+\
+echo "To: rolfsona@mail.com" > /tmp/mail.tmp\
+echo "Cc: \cf2 \cb3 \expnd0\expndtw0\kerning0
+rolfsona\cf2 \cb3 \expnd0\expndtw0\kerning0
+@gmail.com" >> /tmp/mail.tmp\
+echo "From: rolfsona@mail.com" >> /tmp/mail.tmp\
+echo "Subject: my report" >> /tmp/mail.tmp\
+echo "please see as attached" >> /tmp/mail.tmp\
+cat Prayer.html >> /tmp/mail.tmp\
+cat /tmp/mail.tmp | /usr/sbin/sendmail -t}
